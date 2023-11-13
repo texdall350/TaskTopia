@@ -15,16 +15,20 @@ public class CSVUtil {
                 boolean isCompleted = Boolean.parseBoolean(values[5]);
                 switch (values[0]) {
                     case "WorkTask":
-                        task = new WorkTask(values[1], values[2], values[3], LocalDate.parse(values[4]), values[6], values[7]);
+                        task = new WorkTask(values[1], values[2], values[3], LocalDate.parse(values[4]), values[6],
+                                values[7]);
                         break;
                     case "SchoolTask":
-                        task = new SchoolTask(values[1], values[2], values[3], LocalDate.parse(values[4]), values[6], values[7]);
+                        task = new SchoolTask(values[1], values[2], values[3], LocalDate.parse(values[4]), values[6],
+                                values[7]);
                         break;
                     case "PersonalTask":
-                        task = new PersonalTask(values[1], values[2], values[3], LocalDate.parse(values[4]), values[6], values[7]);
+                        task = new PersonalTask(values[1], values[2], values[3], LocalDate.parse(values[4]), values[6],
+                                values[7]);
                         break;
                     case "HouseholdChores":
-                        task = new HouseholdChores(values[1], values[2], values[3], LocalDate.parse(values[4]), values[6], values[7]);
+                        task = new HouseholdChores(values[1], values[2], values[3], LocalDate.parse(values[4]),
+                                values[6], values[7]);
                         break;
                     default:
                         task = new Task(values[1], values[2], values[3], LocalDate.parse(values[4]));
@@ -38,7 +42,6 @@ public class CSVUtil {
         }
         return tasks;
     }
-    
 
     public static void saveTasks(List<Task> tasks, String filename) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename))) {

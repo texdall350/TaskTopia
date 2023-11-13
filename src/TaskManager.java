@@ -25,9 +25,8 @@ public class TaskManager {
     }
 
     public void addTask() {
-        System.out.println("Choose task type: \n1. Basic Task\n2. Work Task\n3. School Task\n4. Personal Task\n5. Household Chore");
         int choice = scanner.nextInt();
-        scanner.nextLine();  // Consume the newline
+        scanner.nextLine(); // Consume the newline
 
         switch (choice) {
             case 1:
@@ -36,15 +35,17 @@ public class TaskManager {
             case 2:
                 addWorkTask();
                 break;
-            // case 3:
-            //     addSchoolTask();
-            //     break;
-            // case 4:
-            //     addPersonalTask();
-            //     break;
-            // case 5:
-            //     addHouseholdChore();
-            //     break;
+            case 3:
+                addSchoolTask();
+                break;
+            case 4:
+                addPersonalTask();
+                break;
+            case 5:
+                addHouseholdChore();
+                break;
+            case 0:
+                break;
             default:
                 System.out.println("Invalid choice. Returning to main menu.");
                 break;
@@ -64,7 +65,7 @@ public class TaskManager {
         tasks.add(basicTask);
         System.out.println("Basic task added successfully!");
     }
-    
+
     private void addWorkTask() {
         System.out.println("Enter task title:");
         String title = scanner.nextLine();
@@ -82,7 +83,7 @@ public class TaskManager {
         tasks.add(workTask);
         System.out.println("Work task added successfully!");
     }
-    
+
     private void addSchoolTask() {
         System.out.println("Enter task title:");
         String title = scanner.nextLine();
@@ -100,7 +101,7 @@ public class TaskManager {
         tasks.add(schoolTask);
         System.out.println("School task added successfully!");
     }
-    
+
     private void addPersonalTask() {
         System.out.println("Enter task title:");
         String title = scanner.nextLine();
@@ -118,7 +119,7 @@ public class TaskManager {
         tasks.add(personalTask);
         System.out.println("Personal task added successfully!");
     }
-    
+
     private void addHouseholdChore() {
         System.out.println("Enter task title:");
         String title = scanner.nextLine();
@@ -132,11 +133,12 @@ public class TaskManager {
         String room = scanner.nextLine();
         System.out.println("Enter equipment needed:");
         String equipmentNeeded = scanner.nextLine();
-        HouseholdChores householdChore = new HouseholdChores(title, priority, description, dueDate, room, equipmentNeeded);
+        HouseholdChores householdChore = new HouseholdChores(title, priority, description, dueDate, room,
+                equipmentNeeded);
         tasks.add(householdChore);
         System.out.println("Household chore added successfully!");
     }
-    
+
     public void displayTasks() {
         if (tasks.isEmpty()) {
             System.out.println("No tasks available.");
