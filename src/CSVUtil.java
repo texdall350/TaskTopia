@@ -1,5 +1,6 @@
 import java.io.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class CSVUtil {
                 switch (values[0]) {
                     case "WorkTask":
                         task = new WorkTask(values[1], values[2], values[3], LocalDate.parse(values[4]), values[6],
-                                values[7]);
+                                LocalTime.parse(values[7]));
                         break;
                     case "SchoolTask":
                         task = new SchoolTask(values[1], values[2], values[3], LocalDate.parse(values[4]), values[6],

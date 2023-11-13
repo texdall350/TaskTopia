@@ -1,8 +1,10 @@
-import java.util.Scanner;
-
 public class Table {
     // each line in the box has 30 spaces (not including the sides of the box)
     int space = 73;
+
+    public int getSpace() {
+        return this.space;
+    }
 
     public void blankLine() {
         System.out.print("|");
@@ -17,9 +19,9 @@ public class Table {
         System.out.flush();
     }
 
-    private void titleMenu() {
+    public void titleMenu() {
         System.out.print("""
-                __________________________________________________________________________
+                 _________________________________________________________________________
                 |  _____     _      ____    _  __  _____    ___    ____    ___      _     |
                 | |_   _|   / \\    / ___|  | |/ / |_   _|  / _ \\  |  _ \\  |_ _|    / \\    |
                 |   | |    / _ \\   \\___ \\  | ' /    | |   | | | | | | ) |  | |    / _ \\   |
@@ -79,6 +81,18 @@ public class Table {
                 |                               5. Household Chore                        |
                 |                                                                         |
                 |                               0. Back to Main                           |
+                |                                                                         |
+                |_________________________________________________________________________|
+                """);
+    }
+
+    public void noTasksScreen() {
+        titleMenu();
+        System.out.println("""
+                |                                                                         |
+                |                            No tasks available.                          |
+                |                                                                         |
+                |                   Would you like to add a task? (yes/no)                |
                 |                                                                         |
                 |_________________________________________________________________________|
                 """);

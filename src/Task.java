@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class Task {
@@ -9,10 +10,8 @@ public class Task {
     protected LocalDate dueDate;
     protected boolean isCompleted;
 
-
-
     public Task(String title, String priority, String description, LocalDate dueDate) {
-        this(title, priority, description, dueDate, true);
+        this(title, priority, description, dueDate, false);
     }
 
     public Task(String title, String priority, String description, LocalDate dueDate, boolean isCompleted) {
@@ -22,8 +21,6 @@ public class Task {
         this.dueDate = dueDate;
         this.isCompleted = isCompleted;
     }
-    
-    
 
     public String toCSV() {
         return "Task," + title + "," + priority + "," + description + "," + dueDate + "," + isCompleted;
@@ -55,54 +52,64 @@ public class Task {
 
     @Override
     public String toString() {
-        return "Task{" +
-                "title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", dueDate=" + dueDate.format(DateTimeFormatter.ofPattern("MM/dd/yyyy")) +
-                ", isCompleted=" + isCompleted +
-                '}';
+        String formattedDate = dueDate.format(DateTimeFormatter.ofPattern("dd MMM yy"));
+        String completionStatus = isCompleted ? "Yes" : "No";
+
+        String classType = getClass().getSimpleName();
+        if ("Task".equals(classType)) {
+            classType = "Basic";
+        } else {
+            classType = classType.substring(0, classType.length() - 4);
+        }
+
+        return classType + " Task" +
+                "\n\tTitle: " + title +
+                "\n\tDescription: " + description +
+                "\n\tDue Date: " + formattedDate +
+                "\n\tComplete: " + completionStatus;
     }
-    
 
 }
 
 class WorkTask extends Task {
     private String project;
-    private String deadlineTime;
+    private LocalTime deadlineTime;
 
-
-    public WorkTask(String title, String priority, String description, LocalDate dueDate,String project, String deadlineTime) {
+    public WorkTask(String title, String priority, String description, LocalDate dueDate, String project,
+            LocalTime deadlineTime) {
         super(title, priority, description, dueDate);
         this.project = project;
         this.deadlineTime = deadlineTime;
     }
 
-    public WorkTask(String title, String priority, String description, LocalDate dueDate, boolean isCompleted ,String project, String deadlineTime) {
+    public WorkTask(String title, String priority, String description, LocalDate dueDate, boolean isCompleted,
+            String project, LocalTime deadlineTime) {
         super(title, priority, description, dueDate, isCompleted);
         this.project = project;
         this.deadlineTime = deadlineTime;
     }
-    
 
     // Getters and setters for project and deadlineTime
 
     @Override
     public String toCSV() {
-        return "WorkTask," + title + "," + priority + "," + description + "," + dueDate + "," + isCompleted + "," + project + "," + deadlineTime;
+        return "WorkTask," + title + "," + priority + "," + description + "," + dueDate + "," + isCompleted + ","
+                + project + "," + deadlineTime;
     }
-
 
     public String getProject() {
         return this.project;
     }
 
-    public String getDeadlineTime() {
+    public LocalTime getDeadlineTime() {
         return this.deadlineTime;
     }
 
     @Override
     public String toString() {
-        return super.toString() + ", Project='" + project + '\'' + ", Deadline Time='" + deadlineTime + '\'' + '}';
+        return super.toString() +
+                "\n\tProject: " + project +
+                "\n\tDeadline Time: " + deadlineTime;
     }
 }
 
@@ -110,13 +117,15 @@ class SchoolTask extends Task {
     private String subject;
     private String assignmentType;
 
-    public SchoolTask(String title, String priority, String description, LocalDate dueDate, String subject, String assignmentType) {
+    public SchoolTask(String title, String priority, String description, LocalDate dueDate, String subject,
+            String assignmentType) {
         super(title, priority, description, dueDate);
         this.subject = subject;
         this.assignmentType = assignmentType;
     }
 
-    public SchoolTask(String title, String priority, String description, LocalDate dueDate,boolean isCompleted, String subject, String assignmentType) {
+    public SchoolTask(String title, String priority, String description, LocalDate dueDate, boolean isCompleted,
+            String subject, String assignmentType) {
         super(title, priority, description, dueDate, isCompleted);
         this.subject = subject;
         this.assignmentType = assignmentType;
@@ -124,9 +133,9 @@ class SchoolTask extends Task {
 
     @Override
     public String toCSV() {
-        return "SchoolTask," + title + "," + priority + "," + description + "," + dueDate + "," + isCompleted + "," + subject + "," + assignmentType;
+        return "SchoolTask," + title + "," + priority + "," + description + "," + dueDate + "," + isCompleted + ","
+                + subject + "," + assignmentType;
     }
-
 
     // Getters and setters for subject and assignmentType
 
@@ -140,7 +149,9 @@ class SchoolTask extends Task {
 
     @Override
     public String toString() {
-        return super.toString() + ", Subject='" + subject + '\'' + ", Assignment Type='" + assignmentType + '\'' + '}';
+        return super.toString() +
+                "\n\tSubject: " + subject +
+                "\n\tAssignment: " + assignmentType;
     }
 }
 
@@ -148,25 +159,25 @@ class PersonalTask extends Task {
     private String category;
     private String location;
 
-
-    public PersonalTask(String title, String priority, String description, LocalDate dueDate, String category, String location) {
+    public PersonalTask(String title, String priority, String description, LocalDate dueDate, String category,
+            String location) {
         super(title, priority, description, dueDate);
         this.category = category;
         this.location = location;
     }
 
-    public PersonalTask(String title, String priority, String description, LocalDate dueDate,boolean isCompleted, String category, String location) {
+    public PersonalTask(String title, String priority, String description, LocalDate dueDate, boolean isCompleted,
+            String category, String location) {
         super(title, priority, description, dueDate, isCompleted);
         this.category = category;
         this.location = location;
     }
-    
 
     @Override
     public String toCSV() {
-        return "PersonalTask," + title + "," + priority + "," + description + "," + dueDate + "," + isCompleted + "," + category + "," + location;
+        return "PersonalTask," + title + "," + priority + "," + description + "," + dueDate + "," + isCompleted + ","
+                + category + "," + location;
     }
-
 
     // Getters and setters for category and priorityLevel
 
@@ -178,10 +189,11 @@ class PersonalTask extends Task {
         return this.location;
     }
 
-
     @Override
     public String toString() {
-        return super.toString() + ", Category='" + category + '\'' + ", Priority Level='"  + '\'' + '}';
+        return super.toString() +
+                "\n\tCategory: " + category +
+                "\n\tLocation: " + location;
     }
 }
 
@@ -189,13 +201,15 @@ class HouseholdChores extends Task {
     private String room;
     private String equipmentNeeded;
 
-    public HouseholdChores(String title, String priority, String description, LocalDate dueDate, String room, String equipmentNeeded) {
+    public HouseholdChores(String title, String priority, String description, LocalDate dueDate, String room,
+            String equipmentNeeded) {
         super(title, priority, description, dueDate);
         this.room = room;
         this.equipmentNeeded = equipmentNeeded;
     }
 
-    public HouseholdChores(String title, String priority, String description, LocalDate dueDate,boolean isCompleted, String room, String equipmentNeeded) {
+    public HouseholdChores(String title, String priority, String description, LocalDate dueDate, boolean isCompleted,
+            String room, String equipmentNeeded) {
         super(title, priority, description, dueDate, isCompleted);
         this.room = room;
         this.equipmentNeeded = equipmentNeeded;
@@ -203,9 +217,9 @@ class HouseholdChores extends Task {
 
     @Override
     public String toCSV() {
-        return "HouseholdChores," + title + "," + priority + "," + description + "," + dueDate + "," + isCompleted + "," + room + "," + equipmentNeeded;
+        return "HouseholdChores," + title + "," + priority + "," + description + "," + dueDate + "," + isCompleted + ","
+                + room + "," + equipmentNeeded;
     }
-
 
     // Getters and setters for room and equipmentNeeded
 
@@ -219,6 +233,8 @@ class HouseholdChores extends Task {
 
     @Override
     public String toString() {
-        return super.toString() + ", Room='" + room + '\'' + ", Equipment Needed='" + equipmentNeeded + '\'' + '}';
+        return super.toString() +
+                "\n\tRoom: " + room +
+                "\n\tEquipment Needed: " + equipmentNeeded;
     }
 }
