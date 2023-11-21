@@ -46,6 +46,10 @@ public class Task {
         return this.isCompleted;
     }
 
+    public String getTaskType() {
+        return this.getClass().getSimpleName();
+    }
+
     public void setCompleted(boolean completed) {
         this.isCompleted = completed;
     }
@@ -64,6 +68,7 @@ public class Task {
 
         return classType + " Task" +
                 "\n\tTitle: " + title +
+                "\n\tPriority: " + priority +
                 "\n\tDescription: " + description +
                 "\n\tDue Date: " + formattedDate +
                 "\n\tComplete: " + completionStatus;

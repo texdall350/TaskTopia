@@ -50,9 +50,31 @@ public class App {
                             taskManager.addTask();
                             scanner.nextLine();
                         }
+                    } else {
+                        table.clearScreen();
+                        table.sortingScreen();
+                        int response = scanner.nextInt();
+                        switch (response) {
+                            case 1:
+                                taskManager.sortTasksByDueDate();
+                                break;
+                            case 2:
+                                taskManager.sortTasksByPriority();
+                                break;
+                            case 3:
+                                taskManager.sortTasksByType();
+                                break;
+                            default:
+                                break;
+                        }
+                        scanner.nextLine();
+
                     }
                     // Displaying initial tasks
-                    System.out.println("Tasks:");
+                    table.clearScreen();
+                    table.titleMenu();
+                    table.blankLine();
+                    table.lastLine();
                     taskManager.displayTasks();
                     System.out.println("Press any key to return");
                     // Wait for user to press any key

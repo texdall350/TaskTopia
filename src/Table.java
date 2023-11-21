@@ -14,6 +14,14 @@ public class Table {
         System.out.print("|\n");
     }
 
+    public void lastLine() {
+        System.out.print("|");
+        for (int i = 0; i < space; i++) {
+            System.out.print("_");
+        }
+        System.out.print("|\n");
+    }
+
     public void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
@@ -96,5 +104,23 @@ public class Table {
                 |                                                                         |
                 |_________________________________________________________________________|
                 """);
+    }
+
+    public void sortingScreen() {
+        titleMenu();
+        System.out.println(
+                """
+                        |                                                                         |
+                        |                                  SORT BY:                               |
+                        |                                1. Due Date                              |
+                        |                                                                         |
+                        |                                2. Priority                              |
+                        |                                                                         |                                                                         |
+                        |                                3. Task Type                             |                                                                         |
+                        |                                                                         |                                                                         |
+                        |                                 0. None                                 |
+                        |                                                                         |
+                        |_________________________________________________________________________|
+                        """);
     }
 }

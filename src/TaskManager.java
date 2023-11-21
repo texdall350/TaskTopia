@@ -3,6 +3,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -73,9 +74,7 @@ public class TaskManager {
         String priority = scanner.nextLine();
         System.out.print("\n\tEnter task description:");
         String description = scanner.nextLine();
-        System.out.print("\n\tEnter due date (YYYY-MM-DD):");
-        LocalDate dueDate = LocalDate.parse(scanner.nextLine());
-
+        LocalDate dueDate = parseDate();
         return new TaskDetails(title, priority, description, dueDate);
     }
 
@@ -152,14 +151,44 @@ public class TaskManager {
         return time;
     }
 
+    private LocalDate parseDate() {
+        LocalDate date = null;
+
+        while (true) {
+            System.out.print("\n\tEnter due date (YYYY-MM-DD):");
+            String dateString = scanner.nextLine();
+
+            try {
+                date = LocalDate.parse(dateString);
+                break;
+            } catch (DateTimeParseException e) {
+                System.out.println("***Invalid time format. Please use 'YYYY-MM-DD' format.***");
+            }
+        }
+
+        return date;
+    }
+
     public void displayTasks() {
         if (tasks.isEmpty()) {
             System.out.println("No tasks available.");
         } else {
             for (Task task : tasks) {
-                System.out.println(task);
+                System.out.println(task + "\n");
             }
         }
+    }
+
+    public void sortTasksByDueDate() {
+        tasks.sort(Comparator.comparing(Task::getDueDate));
+    }
+
+    public void sortTasksByPriority() {
+        tasks.sort(Comparator.comparing(Task::getPriority));
+    }
+
+    public void sortTasksByType() {
+        tasks.sort(Comparator.comparing(Task::getTaskType));
     }
 }
 
