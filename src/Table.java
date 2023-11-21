@@ -62,13 +62,13 @@ public class Table {
                 |                                                                         |
                 |                                                                         |
                 |                                                                         |
-                |                               1. VIEW TASKS                             |
+                |                               1. View Tasks                             |
                 |                                                                         |
+                |                               2. Make Tasks                             |
                 |                                                                         |
-                |                               2. MAKE TASKS                             |
+                |                               3. Edit Tasks                             |
                 |                                                                         |
-                |                                                                         |
-                |                                 3. EXIT                                 |
+                |                               4. EXIT                                   |
                 |                                                                         |
                 |_________________________________________________________________________|
                 """);
@@ -112,13 +112,28 @@ public class Table {
                 """
                         |                                                                         |
                         |                                  SORT BY:                               |
-                        |                                1. Due Date                              |
+                        |                               1. Due Date                               |
                         |                                                                         |
-                        |                                2. Priority                              |
-                        |                                                                         |                                                                         |
-                        |                                3. Task Type                             |                                                                         |
-                        |                                                                         |                                                                         |
-                        |                                 0. None                                 |
+                        |                               2. Priority                               |
+                        |                                                                         |
+                        |                               3. Task Type                              |
+                        |                                                                         |
+                        |                               0. Back to Main                           |
+                        |                                                                         |
+                        |_________________________________________________________________________|
+                        """);
+    }
+
+    public void editScreen() {
+        titleMenu();
+        System.out.println(
+                """
+                        |                                                                         |
+                        |                               1. Complete Task                          |
+                        |                                                                         |
+                        |                               2. Delete Task                            |
+                        |                                                                         |
+                        |                               0. Back to Main                           |
                         |                                                                         |
                         |_________________________________________________________________________|
                         """);

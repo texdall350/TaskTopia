@@ -92,10 +92,27 @@ public class App {
                     table.addTaskScreen();
                     taskManager.addTask();
                     again = true;
-                    taskManager.saveTasks("tasks.csv");
                     break;
 
                 case 3:
+                    table.clearScreen();
+                    table.editScreen();
+                    int response = scanner.nextInt();
+                    switch (response) {
+                        case 1:
+                            taskManager.markTaskAsCompleted();
+                            ;
+                            break;
+                        case 2:
+                            taskManager.removeTask();
+                            break;
+                        default:
+                            break;
+                    }
+                    again = true;
+                    break;
+
+                case 4:
                     table.clearScreen();
                     again = false;
                     break;

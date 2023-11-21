@@ -190,6 +190,41 @@ public class TaskManager {
     public void sortTasksByType() {
         tasks.sort(Comparator.comparing(Task::getTaskType));
     }
+
+    public void markTaskAsCompleted() {
+        System.out.print("\nEnter the title of the task to mark as completed: ");
+        String title = scanner.nextLine();
+
+        Task foundTask = findTaskByTitle(title);
+        if (foundTask != null) {
+            foundTask.setCompleted(true);
+            System.out.println("Task marked as completed.");
+        } else {
+            System.out.println("Task not found.");
+        }
+    }
+
+    public void removeTask() {
+        System.out.print("\nEnter the title of the task to remove: ");
+        String title = scanner.nextLine();
+
+        Task taskToRemove = findTaskByTitle(title);
+        if (taskToRemove != null) {
+            tasks.remove(taskToRemove);
+            System.out.println("Task removed successfully.");
+        } else {
+            System.out.println("Task not found.");
+        }
+    }
+
+    private Task findTaskByTitle(String title) {
+        for (Task task : tasks) {
+            if (task.getTitle().equalsIgnoreCase(title)) {
+                return task;
+            }
+        }
+        return null;
+    }
 }
 
 class TaskDetails {
