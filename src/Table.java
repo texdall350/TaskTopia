@@ -1,6 +1,7 @@
 public class Table {
     // each line in the box has 30 spaces (not including the sides of the box)
     int space = 73;
+    TextColors TEXT = new TextColors();
 
     public int getSpace() {
         return this.space;
@@ -28,6 +29,7 @@ public class Table {
     }
 
     public void titleMenu() {
+        /*
         System.out.print("""
                  _________________________________________________________________________
                 |  _____     _      ____    _  __  _____    ___    ____    ___      _     |
@@ -36,6 +38,13 @@ public class Table {
                 |   | |   / ___ \\   ___) | | . \\    | |   | |_| | |  __/   | |   / ___ \\  |
                 |   |_|  /_/   \\_\\ |____/  |_|\\_\\   |_|    \\___/  |_|     |___| /_/   \\_\\ |
                 """);
+        */
+        System.out.println(" _________________________________________________________________________");
+        System.out.println("|"+TEXT.BLUE+"  _____     _      ____    _  __  _____    ___    ____    ___      _  "+TEXT.RESET+"   |");
+        System.out.println("|"+TEXT.BLUE+" |_   _|   / \\    / ___|  | |/ / |_   _|  / _ \\  |  _ \\  |_ _|    / \\"+TEXT.RESET+"    |");
+        System.out.println("|"+TEXT.BLUE+"   | |    / _ \\   \\___ \\  | ' /    | |   | | | | | |_) |  | |    / _ \\"+TEXT.RESET+"   |");
+        System.out.println("|"+TEXT.BLUE+"   | |   / ___ \\   ___) | | . \\    | |   | |_| | |  __/   | |   / ___ \\"+TEXT.RESET+"  |");
+        System.out.println("|"+TEXT.BLUE+"   |_|  /_/   \\_\\ |____/  |_|\\_\\   |_|    \\___/  |_|     |___| /_/   \\_\\"+TEXT.RESET+" |");
     }
 
     public void helpMenu() {
@@ -132,6 +141,8 @@ public class Table {
                         |                               1. Complete Task                          |
                         |                                                                         |
                         |                               2. Delete Task                            |
+                        |                                                                         |
+                        |                               3. Edit Task                              |
                         |                                                                         |
                         |                               0. Back to Main                           |
                         |                                                                         |

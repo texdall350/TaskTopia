@@ -10,6 +10,8 @@ public class Task {
     protected LocalDate dueDate;
     protected boolean isCompleted;
 
+    TextColors TEXT = new TextColors();
+
     public Task(String title, String priority, String description, LocalDate dueDate) {
         this(title, priority, description, dueDate, false);
     }
@@ -26,20 +28,36 @@ public class Task {
         return "Task," + title + "," + priority + "," + description + "," + dueDate + "," + isCompleted;
     }
 
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title){
+        this.title = title;
+    }
+
     public String getPriority() {
         return this.priority;
     }
 
-    public String getTitle() {
-        return this.title;
+    public void setPriority(String priority){
+        this.priority = priority;
     }
 
     public String getDescription() {
         return this.description;
     }
 
+    public void setDescription(String description){
+        this.description = description;
+    }
+
     public LocalDate getDueDate() {
         return this.dueDate;
+    }
+
+    public void setDueDate(LocalDate dueDate){
+        this.dueDate = dueDate;
     }
 
     public boolean isIsCompleted() {
@@ -57,7 +75,7 @@ public class Task {
     @Override
     public String toString() {
         String formattedDate = dueDate.format(DateTimeFormatter.ofPattern("dd MMM yy"));
-        String completionStatus = isCompleted ? "Yes" : "No";
+        String completionStatus = isCompleted ? TEXT.GREEN + "Yes" + TEXT.RESET : TEXT.RED + "No" + TEXT.RESET;
 
         String classType = getClass().getSimpleName();
         if ("Task".equals(classType)) {
@@ -106,8 +124,16 @@ class WorkTask extends Task {
         return this.project;
     }
 
+    public void setProject(String project){
+        this.project = project;
+    }
+
     public LocalTime getDeadlineTime() {
         return this.deadlineTime;
+    }
+
+    public void setDeadlineTime(LocalTime deadlineTime){
+        this.deadlineTime = deadlineTime;
     }
 
     @Override
@@ -148,8 +174,16 @@ class SchoolTask extends Task {
         return this.subject;
     }
 
+    public void setSubject(String subject){
+        this.subject = subject;
+    }
+
     public String getAssignmentType() {
         return this.assignmentType;
+    }
+
+    public void setAssignmentType(String assignmentType){
+        this.assignmentType = assignmentType;
     }
 
     @Override
@@ -190,8 +224,16 @@ class PersonalTask extends Task {
         return this.category;
     }
 
+    public void setCategory(String category){
+        this.category = category;
+    }
+
     public String getLocation() {
         return this.location;
+    }
+
+    public void setLocation(String location){
+        this.location = location;
     }
 
     @Override
@@ -232,8 +274,16 @@ class HouseholdChores extends Task {
         return this.room;
     }
 
+    public void setRoom(String room){
+        this.room = room;
+    }
+
     public String getEquipmentNeeded() {
         return this.equipmentNeeded;
+    }
+
+    public void setEquipmentNeeded(String equipmentNeeded){
+        this.equipmentNeeded = equipmentNeeded;
     }
 
     @Override

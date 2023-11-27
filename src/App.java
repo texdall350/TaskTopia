@@ -5,6 +5,7 @@ import java.lang.System;
 public class App {
     public static void main(String[] args) {
         TaskManager taskManager = new TaskManager();
+        TextColors TEXT = new TextColors();
         String filename = "tasks.csv";
         // File file = new File(filename);
         // Load tasks from the CSV file
@@ -100,12 +101,47 @@ public class App {
                     int response = scanner.nextInt();
                     switch (response) {
                         case 1:
+                            table.clearScreen();
+                            table.titleMenu();
+                            table.lastLine();
                             taskManager.markTaskAsCompleted();
-                            ;
+                            System.out.println("Press any key to return");
+                            // Wait for user to press any key
+                            try {
+                                System.in.read();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            again = true;
                             break;
                         case 2:
+                            table.clearScreen();
+                            table.titleMenu();
+                            table.lastLine();
                             taskManager.removeTask();
+                            System.out.println("Press any key to return");
+                            // Wait for user to press any key
+                            try {
+                                System.in.read();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            again = true;
                             break;
+                        case 3:
+                            table.clearScreen();
+                            table.titleMenu();
+                            table.lastLine();
+                            taskManager.editTask();
+                            System.out.println("Press any key to return");
+                            // Wait for user to press any key
+                            try {
+                                System.in.read();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            again = true;
+                            break;    
                         default:
                             break;
                     }
@@ -125,7 +161,7 @@ public class App {
 
         }
         taskManager.saveTasks("tasks.csv");
-        System.out.println("\nTasks saved to tasks.csv");
+        System.out.println(TEXT.GREEN + "\nTasks saved to tasks.csv" + TEXT.RESET);
         // Rest of your main method logic goes here
         // close file
 
