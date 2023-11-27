@@ -1,0 +1,10 @@
+Task,Task 1,High,Description of Task 1,2023-11-20,false
+Task,Task 2,Normal,Description of Task 2,2023-12-15,true
+WorkTask,Work Task 1,High,Work related task,2023-11-25,false,Project A,10:00
+WorkTask,Work Task 2,Low,Another work task,2023-12-20,true,Project B,14:00
+SchoolTask,School Task 1,Normal,Assignment for math,2023-11-30,false,Math,Assignment
+SchoolTask,School Task 2,High,Project for science,2023-12-05,true,Science,Project
+PersonalTask,Personal Task 1,Low,Go to the gym,2023-11-22,false,Fitness,Gym
+PersonalTask,Personal Task 2,Normal,Read a book,2023-12-10,true,Reading,Home
+HouseholdChores,Chore 1,High,Clean the kitchen,2023-11-18,false,Kitchen,Cleaning Supplies
+HouseholdChores,Chore 2,[33mNormal[0m,Organize the garage,2023-12-01,true,Garage,Tools
