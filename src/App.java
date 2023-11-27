@@ -47,6 +47,7 @@ public class App {
                         table.noTasksScreen();
                         String response = scanner.nextLine().trim().toLowerCase();
                         if ("yes".equals(response)) {
+                            table.clearScreen();
                             table.addTaskScreen();
                             taskManager.addTask();
                             scanner.nextLine();
@@ -141,7 +142,7 @@ public class App {
                                 e.printStackTrace();
                             }
                             again = true;
-                            break;    
+                            break;
                         default:
                             break;
                     }
@@ -169,4 +170,5 @@ public class App {
         scanner.close();
 
     }
+
 }

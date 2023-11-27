@@ -32,7 +32,7 @@ public class Task {
         return this.title;
     }
 
-    public void setTitle(String title){
+    public void setTitle(String title) {
         this.title = title;
     }
 
@@ -40,7 +40,7 @@ public class Task {
         return this.priority;
     }
 
-    public void setPriority(String priority){
+    public void setPriority(String priority) {
         this.priority = priority;
     }
 
@@ -48,7 +48,7 @@ public class Task {
         return this.description;
     }
 
-    public void setDescription(String description){
+    public void setDescription(String description) {
         this.description = description;
     }
 
@@ -56,7 +56,7 @@ public class Task {
         return this.dueDate;
     }
 
-    public void setDueDate(LocalDate dueDate){
+    public void setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
     }
 
@@ -124,7 +124,7 @@ class WorkTask extends Task {
         return this.project;
     }
 
-    public void setProject(String project){
+    public void setProject(String project) {
         this.project = project;
     }
 
@@ -132,7 +132,7 @@ class WorkTask extends Task {
         return this.deadlineTime;
     }
 
-    public void setDeadlineTime(LocalTime deadlineTime){
+    public void setDeadlineTime(LocalTime deadlineTime) {
         this.deadlineTime = deadlineTime;
     }
 
@@ -174,7 +174,7 @@ class SchoolTask extends Task {
         return this.subject;
     }
 
-    public void setSubject(String subject){
+    public void setSubject(String subject) {
         this.subject = subject;
     }
 
@@ -182,7 +182,7 @@ class SchoolTask extends Task {
         return this.assignmentType;
     }
 
-    public void setAssignmentType(String assignmentType){
+    public void setAssignmentType(String assignmentType) {
         this.assignmentType = assignmentType;
     }
 
@@ -224,7 +224,7 @@ class PersonalTask extends Task {
         return this.category;
     }
 
-    public void setCategory(String category){
+    public void setCategory(String category) {
         this.category = category;
     }
 
@@ -232,7 +232,7 @@ class PersonalTask extends Task {
         return this.location;
     }
 
-    public void setLocation(String location){
+    public void setLocation(String location) {
         this.location = location;
     }
 
@@ -274,7 +274,7 @@ class HouseholdChores extends Task {
         return this.room;
     }
 
-    public void setRoom(String room){
+    public void setRoom(String room) {
         this.room = room;
     }
 
@@ -282,7 +282,7 @@ class HouseholdChores extends Task {
         return this.equipmentNeeded;
     }
 
-    public void setEquipmentNeeded(String equipmentNeeded){
+    public void setEquipmentNeeded(String equipmentNeeded) {
         this.equipmentNeeded = equipmentNeeded;
     }
 
