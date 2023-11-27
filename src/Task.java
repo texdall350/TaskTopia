@@ -11,6 +11,8 @@ public class Task {
     protected LocalDate dueDate;
     protected boolean isCompleted;
 
+    TextColors TEXT = new TextColors();
+
     // Constructor for creating a new task with default completion status as false
     public Task(String title, String priority, String description, LocalDate dueDate) {
         this(title, priority, description, dueDate, false);
@@ -74,9 +76,10 @@ public class Task {
     // Generates a string representation of the task
     @Override
     public String toString() {
+        TaskManager taskManager = new TaskManager();
         // Formatting date and completion status for display
         String formattedDate = dueDate.format(DateTimeFormatter.ofPattern("dd MMM yy"));
-        String completionStatus = isCompleted ? "Yes" : "No";
+        String completionStatus = isCompleted ? TEXT.GREEN + "Yes" + TEXT.RESET : TEXT.RED + "No" + TEXT.RESET;
 
         // Determining the type of task for display
         String classType = getClass().getSimpleName();
@@ -88,7 +91,7 @@ public class Task {
 
         return classType + " Task" +
                 "\n\tTitle: " + title +
-                "\n\tPriority: " + priority +
+                "\n\tPriority: " + taskManager.priorityColorSet(priority) +
                 "\n\tDescription: " + description +
                 "\n\tDue Date: " + formattedDate +
                 "\n\tComplete: " + completionStatus;

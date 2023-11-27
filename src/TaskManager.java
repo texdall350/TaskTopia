@@ -476,6 +476,22 @@ public class TaskManager {
         return null; // Return null if no matching task is found.
     }
 
+    public String priorityColorSet(String priority) {
+        priority = priority.toLowerCase();
+        // Check for different priority levels and assign the corresponding color-coded
+        // priority.
+        if (priority.contains("high")) {
+            priority = TEXT.RED + "High" + TEXT.RESET;
+        } else if (priority.contains("low")) {
+            priority = TEXT.GREEN + "Low" + TEXT.RESET;
+        } else if (priority.contains("normal")) {
+            priority = TEXT.YELLOW + "Normal" + TEXT.RESET;
+        } else {
+            return null;
+        }
+        return priority;
+    }
+
     // Sets the priority level for a task based on user input.
     public String prioritySetLevel() {
         // Prompt the user to enter a priority level.
@@ -485,28 +501,21 @@ public class TaskManager {
 
         // Loop until a valid priority is entered.
         while (true) {
-            // Check for different priority levels and assign the corresponding color-coded
-            // priority.
-            if (priority.equalsIgnoreCase("High")) {
-                priority = TEXT.RED + "High" + TEXT.RESET;
+
+            priority = priorityColorSet(priority);
+            if (priority == null) {
+                // If an invalid priority is entered, prompt the user again.
+                System.out.println(TEXT.RED + "\tINVALID PRIORITY LEVEL!" + TEXT.RESET);
+                System.out.print(
+                        "\tEnter priority (" + TEXT.RED + "High," + TEXT.GREEN + " Low," + TEXT.YELLOW + " Normal"
+                                + TEXT.RESET + "): ");
+                priority = scanner.nextLine();
+            } else
                 break;
-            }
-            if (priority.equalsIgnoreCase("Low")) {
-                priority = TEXT.GREEN + "Low" + TEXT.RESET;
-                break;
-            }
-            if (priority.equalsIgnoreCase("Normal")) {
-                priority = TEXT.YELLOW + "Normal" + TEXT.RESET;
-                break;
-            }
-            // If an invalid priority is entered, prompt the user again.
-            System.out.println(TEXT.RED + "\tINVALID PRIORITY LEVEL!" + TEXT.RESET);
-            System.out.print("\tEnter priority (" + TEXT.RED + "High," + TEXT.GREEN + " Low," + TEXT.YELLOW + " Normal"
-                    + TEXT.RESET + "): ");
-            priority = scanner.nextLine();
         }
         return priority; // Return the formatted priority string.
     }
+
 }
 
 // Class representing the details of a task.
