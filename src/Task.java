@@ -123,6 +123,22 @@ class WorkTask extends Task {
 
     // Getters and setters for project and deadlineTime
 
+    public String getProject() {
+        return this.project;
+    }
+
+    public void setProject(String project) {
+        this.project = project;
+    }
+
+    public LocalTime getDeadlineTime() {
+        return this.deadlineTime;
+    }
+
+    public void setDeadlineTime(LocalTime deadlineTime) {
+        this.deadlineTime = deadlineTime;
+    }
+
     @Override
     public String toCSV() {
         // Converts work task details to a CSV format string
@@ -165,6 +181,22 @@ class SchoolTask extends Task {
     }
 
     // Getters and setters for subject and assignmentType
+
+    public String getSubject() {
+        return this.subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public String getAssignmentType() {
+        return this.assignmentType;
+    }
+
+    public void setAssignmentType(String assignmentType) {
+        this.assignmentType = assignmentType;
+    }
 
     @Override
     public String toCSV() {
@@ -214,6 +246,22 @@ class PersonalTask extends Task {
 
     // Getters and setters for category and location
 
+    public String getCategory() {
+        return this.category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getLocation() {
+        return this.location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
     // Override toString method to include personal task specific details
     @Override
     public String toString() {
@@ -255,6 +303,22 @@ class HouseholdChores extends Task {
     }
 
     // Getters and setters for room and equipmentNeeded
+
+    public String getRoom() {
+        return this.room;
+    }
+
+    public void setRoom(String room) {
+        this.room = room;
+    }
+
+    public String getEquipmentNeeded() {
+        return this.equipmentNeeded;
+    }
+
+    public void setEquipmentNeeded(String equipmentNeeded) {
+        this.equipmentNeeded = equipmentNeeded;
+    }
 
     // Override toString method to include household chore specific details
     @Override

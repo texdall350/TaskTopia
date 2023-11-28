@@ -253,8 +253,8 @@ public class TaskManager {
     public void sortTasksByPriority() {
         // Define a comparator for sorting tasks by priority.
         Comparator<Task> priorityComparator = Comparator
-                .comparingInt(obj -> obj.priority.equals(TEXT.RED + "High" + TEXT.RESET) ? 0
-                        : obj.priority.equals(TEXT.YELLOW + "Normal" + TEXT.RESET) ? 1 : 2);
+                .comparingInt(obj -> obj.priority.equalsIgnoreCase("High") ? 0
+                        : obj.priority.equalsIgnoreCase("Normal") ? 1 : 2);
         // Sort tasks based on the defined priority levels.
         Collections.sort(tasks, priorityComparator);
     }
@@ -500,18 +500,16 @@ public class TaskManager {
         String priority = scanner.nextLine();
 
         // Loop until a valid priority is entered.
-        while (true) {
+        while (!priority.equalsIgnoreCase("low") && !priority.equalsIgnoreCase("normal")
+                && !priority.equalsIgnoreCase("high")) {
 
-            priority = priorityColorSet(priority);
-            if (priority == null) {
-                // If an invalid priority is entered, prompt the user again.
-                System.out.println(TEXT.RED + "\tINVALID PRIORITY LEVEL!" + TEXT.RESET);
-                System.out.print(
-                        "\tEnter priority (" + TEXT.RED + "High," + TEXT.GREEN + " Low," + TEXT.YELLOW + " Normal"
-                                + TEXT.RESET + "): ");
-                priority = scanner.nextLine();
-            } else
-                break;
+            // If an invalid priority is entered, prompt the user again.
+            System.out.println(TEXT.RED + "\tINVALID PRIORITY LEVEL!" + TEXT.RESET);
+            System.out.print(
+                    "\tEnter priority (" + TEXT.RED + "High," + TEXT.GREEN + " Low," + TEXT.YELLOW + " Normal"
+                            + TEXT.RESET + "): ");
+            priority = scanner.nextLine();
+
         }
         return priority; // Return the formatted priority string.
     }
