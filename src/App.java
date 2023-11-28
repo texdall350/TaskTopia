@@ -2,10 +2,8 @@
 /* CSE 1325-005
 
 1.	Robert (Tres) Eberle 	1001876818  
-2.	Joseph Hite	            0000000000
-3.	Gerardo Salinas	        0000000000 
-4.	Jaime Zhang	            1001982072
-5.	Dallas Spellman	        1002112847
+2.	Jaime Zhang	            1001982072
+3.	Dallas Spellman	        1002112847
 
 TaskTopia - A task tracker and orginizer
 Java version 17 or higher required
